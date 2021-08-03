@@ -10,7 +10,7 @@ function Loader() {
                 style={{height: window.innerHeight - 50}}
             >
                 <Grid container justify={"center"} >
-                    <div class="lds-hourglass"></div>
+                    <div className="lds-hourglass"></div>
                 </Grid>
             </Grid>
         </Container>

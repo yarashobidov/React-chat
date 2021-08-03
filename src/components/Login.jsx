@@ -15,10 +15,10 @@ function Login() {
             <Grid 
                 container 
                 alignItems="center" 
-                justify={"center"} 
+                justifyContent="center" 
                 style={{height: window.innerHeight - 50}}
             >
-                <Grid container justify={"center"} style={{width: 400, background: 'lightgray'}}>
+                <Grid container justifyContent="center" style={{width: 400, background: 'lightgray'}}>
                     <Box p={5}>
                         <Button onClick={login} variant={"outlined"}>GOOGLE Yordamida kirish</Button>
                     </Box>

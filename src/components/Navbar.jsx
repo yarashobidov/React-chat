@@ -12,7 +12,7 @@ function Navbar() {
         <AppBar style={{background: 'linear-gradient(-45deg, #39249a, #e14e42)'}} position="static">
             <Toolbar variant="dense" >
                 <h3>Obidov Yarash</h3>
-                <Grid container justify={'flex-end'}>
+                <Grid container justifyContent={'flex-end'}>
                     {user ? <Button onClick={() => auth.signOut()} variant="outlined">EXIT</Button>
                            : <NavLink to={LOGIN_ROUTE}>
                                 <Button variant="outlined">LOGIN</Button>
