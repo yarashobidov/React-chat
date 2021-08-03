@@ -11,7 +11,7 @@ function Chat() {
     const [user] = useAuthState(auth)
     
     const [value, setValue] = useState("")
-    const [messages, loading, error] = useCollectionData(
+    const [messages, loading] = useCollectionData(
         firestore.collection('messages').orderBy("createdAt")
     )
     const sendMessage = async () => {
@@ -41,14 +41,30 @@ function Chat() {
                         width: '90%', 
                         height: '60vh', 
                         border: '1px solid gray', 
-                        overflowX: 'auto'
+                        overflowX: 'auto',
+                        background: 'linear-gradient(-45deg, #39249a, #e14e42)'
                     }}
                 >
                     {messages.map(message => 
-                        <div>
-                            <Grid container>
-                                <Avatar />
+                        <div 
+                            key={`message.text${Math.random()*1000}`}
+                            style={{
+                                margin: 10,
+                                backgroundColor: user.uid === message.uid ? "rgba(255, 255, 255, 0.7)" : "rgba(228, 83, 167, 0.549)",
+                                marginLeft: user.uid === message.uid ? "auto" : "10px",
+                                width: '40%',
+                                padding: 5,
+                                borderRadius: '10px'
+                            }}
+                        >
+                            <Grid 
+                                container
+                                style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}
+                            >
+                                <Avatar src={message.photoURL} />
+                                <div>{message.displayName}</div>
                             </Grid>
+                            <div style={{marginTop: 10}}>{message.text}</div>
                         </div>
                     )}
                 </div>
